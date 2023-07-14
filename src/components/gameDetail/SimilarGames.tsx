@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import { SimilarGamesProps } from '@/types/Type'
+import Link from 'next/link'
 
 const SimilarGames:React.FC<SimilarGamesProps> = ({similar_games}) => {
   return (
@@ -36,12 +37,14 @@ const SimilarGames:React.FC<SimilarGamesProps> = ({similar_games}) => {
               >
                 {game.name}
               </span>
-              <img
-                src={game.cover ? game.cover.url.replace('thumb', 'cover_big') : '/no-image.png'}
-                alt='cover'
-                className='rounded-md'
-                width={150}
-              />
+              <Link href={{ pathname: `/games/${game.slug}`, query: { id: game.id } }}>
+                <img
+                  src={game.cover ? game.cover.url.replace('thumb', 'cover_big') : '/no-image.png'}
+                  alt='cover'
+                  className='rounded-md'
+                  width={150}
+                />
+              </Link>
             </span>
           </div>
         ))}

@@ -57,6 +57,7 @@ export interface GameDetailProps {
     }[],
     similar_games: {
       id: number,
+      slug: string,
       cover: {
         url: string,
       },
@@ -99,5 +100,6 @@ interface SimilarGamesProps {
       url: string,
     },
     name: string,
+    slug: string,
   }[],
 }
