@@ -22,7 +22,7 @@ const Layout: React.FC<CommonTypeProps> = ({
                 <meta
                     property="og:image"
                     key="ogImage"
-                    content={`https://game-lottery.vercel.app/ogp.png`}
+                    content={`https://game-lottery-one.vercel.app/ogp.png`}
                 />
                 <meta
                     name="twitter:card"
@@ -32,7 +32,7 @@ const Layout: React.FC<CommonTypeProps> = ({
                 <meta
                     name="twitter:image"
                     key="twitterImage"
-                    content={`https://game-lottery.vercel.app/ogp.png`}
+                    content={`https://game-lottery-one.vercel.app/ogp.png`}
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
