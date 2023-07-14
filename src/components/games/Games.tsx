@@ -14,8 +14,10 @@ const Games:React.FC<GamesProps> = ({displayedGames}) => {
         {displayedGames.map((game: any) => (
           <GamesCard
             key={game.id}
+            id={game.id}
             cover={game.cover}
             name={game.name}
+            slug={game.slug}
           />
         ))}
       </div>

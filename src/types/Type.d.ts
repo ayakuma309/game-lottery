@@ -26,8 +26,10 @@ export interface GamePaginationProps {
 }
 
 export interface GamesCardProps {
+  id: number;
   cover: {
     url: string;
   };
   name: string;
+  slug: string;
 }
