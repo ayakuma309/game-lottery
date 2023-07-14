@@ -1,13 +1,7 @@
-export interface GameInfoProps {
-  title: string;
-  image: string;
-  release_date: string;
-  platform: string;
-  genre: string;
-  description: string;
-  website: string;
-  trailer: string;
-  screenshots: string[];
+export interface ConnectedData {
+  access_token: string;
+  token_type: string;
+  expires_in: number;
 }
 
 export interface SearchGamesProps {
@@ -65,4 +59,40 @@ export interface GameDetailProps {
     }[],
     storyline: string,
   }
+}
+
+//ジャンル
+export interface GenresProps {
+  genres: {
+    id: number,
+    name: string
+  }[],
+}
+
+//プラットフォーム
+export interface PlatFormsProps {
+  platforms: {
+    id: number;
+    name: string;
+  }[];
+}
+
+//スクリーンショット
+export interface ScreenShotsProps {
+  screenshots: {
+    id: number,
+    image_id: string,
+    url: string,
+  }[],
+}
+
+//おすすめ
+interface SimilarGamesProps {
+  similar_games: {
+    id: number,
+    cover: {
+      url: string,
+    },
+    name: string,
+  }[],
 }

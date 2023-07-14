@@ -1,14 +1,6 @@
 import React, { memo } from 'react'
+import { SimilarGamesProps } from '@/types/Type'
 
-interface SimilarGamesProps {
-  similar_games: {
-    id: number,
-    cover: {
-      url: string,
-    },
-    name: string,
-  }[],
-}
 const SimilarGames:React.FC<SimilarGamesProps> = ({similar_games}) => {
   return (
     <>

@@ -4,12 +4,8 @@ import axios from 'axios'
 import usePagination from '@/hooks/usePagination';
 import Games from '@/components/games/Games';
 import Pagination from '@/components/games/Pagination';
+import { ConnectedData } from '@/types/Type';
 
-interface ConnectedData {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-}
 const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
   const [title, setTitle] = useState("")
   const [searched, setSearched] = useState("")

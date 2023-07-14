@@ -1,11 +1,6 @@
 import React from 'react'
+import { GenresProps } from '@/types/Type'
 
-interface GenresProps {
-  genres: {
-    id: number,
-    name: string
-  }[],
-}
 const Genres:React.FC<GenresProps> = ({genres}) => {
   return (
     <div className="flex flex-wrap justify-center">

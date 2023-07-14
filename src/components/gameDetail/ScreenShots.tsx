@@ -1,12 +1,5 @@
 import React, { memo } from 'react'
-
-interface ScreenShotsProps {
-  screenshots: {
-    id: number,
-    image_id: string,
-    url: string,
-  }[],
-}
+import { ScreenShotsProps } from '@/types/Type'
 
 const ScreenShots:React.FC<ScreenShotsProps> = ({screenshots}) => {
   return (

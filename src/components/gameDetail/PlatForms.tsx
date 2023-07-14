@@ -1,12 +1,5 @@
 import React, { memo } from 'react'
-
-
-interface PlatFormsProps {
-  platforms: {
-    id: number;
-    name: string;
-  }[];
-}
+import { PlatFormsProps } from '@/types/Type'
 
 const PlatForms:React.FC<PlatFormsProps> = ({platforms}) => {
   return (
