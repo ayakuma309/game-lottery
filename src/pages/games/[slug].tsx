@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import axios from 'axios'
 import { GetServerSidePropsContext } from 'next';
 import Genres from '@/components/gameDetail/Genres'
@@ -6,14 +6,38 @@ import SimilarGames from '@/components/gameDetail/SimilarGames'
 import ScreenShots from '@/components/gameDetail/ScreenShots';
 import { GameDetailProps } from '@/types/Type';
 import PlatForms from '@/components/gameDetail/PlatForms';
+import { TwitterIcon, TwitterShareButton } from 'react-share';
 
 const GameDetail:React.FC<GameDetailProps> = ({game}) => {
+
+  //share用の変数を定義
+  const gameListShare = useMemo(() => {
+    if (!game) return null;
+    // 上位5件のおすすめ映画タイトル
+    const recommendedGameTitles = game.similar_games
+        .map((g) => g.name)
+        .join("\n");
+    return `おすすめでました!\n${recommendedGameTitles}\n`;
+}, []);
+
   return (
     <div className='container w-11/12 mx-auto'>
       <h1 className="w-full text-2xl font-bold text-center py-2 my-2 font-mono">
         {game.name}<br />
         を選んだあなたにおすすめのゲームです！
       </h1>
+      <div className="text-center my-5">
+        <TwitterShareButton
+          title={`${gameListShare}`}
+          hashtags={["ゲームの宝さがし", "おすすめゲーム"]}
+          url={`https://game-lottery.vercel.app/`}
+        >
+          <TwitterIcon
+            className="text-white font-bold rounded-full"
+            size={"32px"}
+          />
+        </TwitterShareButton>
+      </div>
       {game.similar_games && (
         <SimilarGames similar_games={game.similar_games} />
       )}
