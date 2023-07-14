@@ -5,6 +5,7 @@ import Genres from '@/components/gameDetail/Genres'
 import SimilarGames from '@/components/gameDetail/SimilarGames'
 import ScreenShots from '@/components/gameDetail/ScreenShots';
 import { GameDetailProps } from '@/types/Type';
+import PlatForms from '@/components/gameDetail/PlatForms';
 
 const GameDetail:React.FC<GameDetailProps> = ({game}) => {
   return (
@@ -40,22 +41,7 @@ const GameDetail:React.FC<GameDetailProps> = ({game}) => {
         )}
       </div>
       <div className="my-5">
-        {game.platforms && (
-          <div>
-            <h2 className="text-2xl font-bold text-center py-2 mb-2 mt-24">
-              対応プラットフォーム
-            </h2>
-            <div className="flex flex-wrap justify-center">
-              {game.platforms.map((platform) => (
-                <div key={platform.id} className="flex flex-col justify-center items-center m-2">
-                  <div className="text-center">
-                    {platform.name}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        <PlatForms platforms={game.platforms} />
       </div>
     </div>
   )
