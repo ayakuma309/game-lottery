@@ -7,6 +7,7 @@ import ScreenShots from '@/components/gameDetail/ScreenShots';
 import { GameDetailProps } from '@/types/Type';
 import PlatForms from '@/components/gameDetail/PlatForms';
 import { TwitterIcon, TwitterShareButton } from 'react-share';
+import Layout from '@/components/common/Layout';
 
 const GameDetail:React.FC<GameDetailProps> = ({game}) => {
 
@@ -21,53 +22,55 @@ const GameDetail:React.FC<GameDetailProps> = ({game}) => {
 }, []);
 
   return (
-    <div className='container w-11/12 mx-auto'>
-      <h1 className="w-full text-2xl font-bold text-center py-2 my-2 font-mono">
-        {game.name}<br />
-        を選んだあなたにおすすめのゲームです！
-      </h1>
-      <div className="text-center my-5">
-        <TwitterShareButton
-          title={`${gameListShare}`}
-          hashtags={["ゲームの宝さがし", "おすすめゲーム"]}
-          url={`https://game-lottery.vercel.app/`}
-        >
-          <TwitterIcon
-            className="text-white font-bold rounded-full"
-            size={"32px"}
-          />
-        </TwitterShareButton>
-      </div>
-      {game.similar_games && (
-        <SimilarGames similar_games={game.similar_games} />
-      )}
-      <h1 className="w-full text-4xl font-bold text-center py-2 mb-2 mt-24">
-        {game.name}
-      </h1>
-      <img
-        src={game.cover ? game.cover.url.replace('thumb', 'cover_big') : '/no-image.png'}
-        alt="cover"
-        className='mx-auto rounded-md my-2'
-      />
-      <div className="my-2">
-        {game.genres && (
-          <Genres genres={game.genres} />
+    <Layout title="Recommend games">
+      <div className='container w-11/12 mx-auto'>
+        <h1 className="w-full text-2xl font-bold text-center py-2 my-2 font-mono">
+          {game.name}<br />
+          を選んだあなたにおすすめのゲームです！
+        </h1>
+        <div className="text-center my-5">
+          <TwitterShareButton
+            title={`${gameListShare}`}
+            hashtags={["ゲームの宝さがし", "おすすめゲーム"]}
+            url={`https://game-lottery.vercel.app/`}
+          >
+            <TwitterIcon
+              className="text-white font-bold rounded-full"
+              size={"32px"}
+            />
+          </TwitterShareButton>
+        </div>
+        {game.similar_games && (
+          <SimilarGames similar_games={game.similar_games} />
         )}
+        <h1 className="w-full text-4xl font-bold text-center py-2 mb-2 mt-24">
+          {game.name}
+        </h1>
+        <img
+          src={game.cover ? game.cover.url.replace('thumb', 'cover_big') : '/no-image.png'}
+          alt="cover"
+          className='mx-auto rounded-md my-2'
+        />
+        <div className="my-2">
+          {game.genres && (
+            <Genres genres={game.genres} />
+          )}
+        </div>
+        <div className="my-5">
+          {game.storyline && game.storyline}
+        </div>
+        <div className="my-5">
+          {game.screenshots && (
+            <div>
+              <ScreenShots screenshots={game.screenshots} />
+            </div>
+          )}
+        </div>
+        <div className="my-5">
+          <PlatForms platforms={game.platforms} />
+        </div>
       </div>
-      <div className="my-5">
-        {game.storyline && game.storyline}
-      </div>
-      <div className="my-5">
-        {game.screenshots && (
-          <div>
-            <ScreenShots screenshots={game.screenshots} />
-          </div>
-        )}
-      </div>
-      <div className="my-5">
-        <PlatForms platforms={game.platforms} />
-      </div>
-    </div>
+    </Layout>
   )
 }
 

@@ -5,6 +5,7 @@ import usePagination from '@/hooks/usePagination';
 import Games from '@/components/games/Games';
 import Pagination from '@/components/games/Pagination';
 import { ConnectedData } from '@/types/Type';
+import Layout from '@/components/common/Layout';
 
 const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
   const [title, setTitle] = useState("")
@@ -29,7 +30,7 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
     })
   }
   return (
-    <div>
+    <Layout title="search">
       <form id="search" onSubmit={searchGame} className="w-full">
         <input
         type="search"
@@ -43,7 +44,7 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
         <Games displayedGames={displayedGames} />
       </div>
       <Pagination page={page} maxPage={maxPage} resultGames={resultGames} next={next} prev={prev} />
-    </div>
+    </Layout>
   )
 }
 
