@@ -1,8 +1,9 @@
-import Pagination from '@/components/games/Pagination';
-import usePagination from '@/hooks/usePagination';
-import axios from 'axios'
-import { NextPage } from 'next'
 import React, { useState , FormEvent} from 'react'
+import { NextPage } from 'next'
+import axios from 'axios'
+import usePagination from '@/hooks/usePagination';
+import Games from '@/components/games/Games';
+import Pagination from '@/components/games/Pagination';
 
 interface ConnectedData {
   access_token: string;
@@ -43,18 +44,7 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
       </form>
       <div className="w-full">
         <h1 className="text-center text-2xl font-bold">{searched}</h1>
-        <div className="grid grid-cols-3 gap-4">
-          {displayedGames.map((game: any) => (
-            <div key={game.id} className="flex flex-col justify-center items-center">
-              <img
-                src={game.cover ? game.cover.url.replace('thumb', 'cover_big') : '/no-image.png'}
-                alt="cover"
-                className="h-44 w-1/2 mx-auto rounded-md relative overflow-hidden"
-              />
-              <h2 className="text-center text-lg font-bold">{game.name}</h2>
-            </div>
-          ))}
-        </div>
+        <Games displayedGames={displayedGames} />
       </div>
       <Pagination page={page} maxPage={maxPage} resultGames={resultGames} next={next} prev={prev} />
     </div>

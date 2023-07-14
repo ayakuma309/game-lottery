@@ -1,5 +1,4 @@
-export interface GameProps {
-  id: number;
+export interface GameInfoProps {
   title: string;
   image: string;
   release_date: string;
@@ -11,10 +10,24 @@ export interface GameProps {
   screenshots: string[];
 }
 
+export interface SearchGamesProps {
+  id: number;
+  name: string;
+  cover: {
+    url: string;
+  };
+}
 export interface GamePaginationProps {
   page: number;
   maxPage: number;
-  resultGames: GameProps[];
+  resultGames: SearchGamesProps[];
   next: () => void;
   prev: () => void;
+}
+
+export interface GamesCardProps {
+  cover: {
+    url: string;
+  };
+  name: string;
 }
