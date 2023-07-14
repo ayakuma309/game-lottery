@@ -31,19 +31,21 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
   }
   return (
     <Layout title="search">
-      <form id="search" onSubmit={searchGame} className="w-full">
-        <input
-        type="search"
-        placeholder="Search for a game..."
-        className="w-full text-center p-1 focus:outline-none text-lg rounded-t-lg"
-        minLength={3}
-        onChange={(e) => setTitle(e.target.value)} />
-      </form>
-      <div className="w-full">
-        <h1 className="text-center text-2xl font-bold">{searched}</h1>
-        <Games displayedGames={displayedGames} />
+      <div className="container mx-auto mt-32 pb-16 text-black sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
+        <form id="search" onSubmit={searchGame} className="mx-auto w-[350px] sm:w-full">
+          <input
+          type="search"
+          placeholder="Search for a game..."
+          className="w-full rounded-md  p-6 text-black"
+          minLength={3}
+          onChange={(e) => setTitle(e.target.value)} />
+        </form>
+        <div className="w-full">
+          <h1 className="text-center text-2xl font-bold">{searched}</h1>
+          <Games displayedGames={displayedGames} />
+        </div>
+        <Pagination page={page} maxPage={maxPage} resultGames={resultGames} next={next} prev={prev} />
       </div>
-      <Pagination page={page} maxPage={maxPage} resultGames={resultGames} next={next} prev={prev} />
     </Layout>
   )
 }
