@@ -16,7 +16,7 @@ const GamesCard:React.FC<GamesCardProps> = ({id, cover, name, slug}) => {
       <div className="flex justify-center">
         <Link href={{ pathname: `/games/${slug}`, query: { id: id } }}>
           <button className="p-2 font-bold outline">
-            このゲーム好き！
+            このゲームにする！
           </button>
         </Link>
       </div>

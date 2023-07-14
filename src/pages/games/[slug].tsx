@@ -20,11 +20,6 @@ interface GameDetailProps {
     platforms: {
       id: number,
       name: string,
-      image_id: string,
-      platform_logo: {
-        id: number,
-        url: string,
-      }
     }[],
     screenshots: {
       id: number,
@@ -75,23 +70,24 @@ const GameDetail:React.FC<GameDetailProps> = ({game}) => {
           </div>
         )}
       </div>
-      {/* {game.platforms && (
-        <div className='flex flex-wrap'>
-          {game.platforms.map((platform) => (
-            <div key={platform.id} className=''>
-              <img
-                src={platform.platform_logo ? platform.platform_logo.url.replace('thumb', 'cover_big') : '/no-image.png'}
-                alt='cover'
-                className='rounded-md'
-                width={150}
-              />
-              <div>
-                {platform.name}
-              </div>
+      <div className="my-5">
+        {game.platforms && (
+          <div>
+            <h2 className="text-2xl font-bold text-center py-2 mb-2 mt-24">
+              対応プラットフォーム
+            </h2>
+            <div className="flex flex-wrap justify-center">
+              {game.platforms.map((platform) => (
+                <div key={platform.id} className="flex flex-col justify-center items-center m-2">
+                  <div className="text-center">
+                    {platform.name}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      )} */}
+          </div>
+        )}
+      </div>
     </div>
   )
 }
