@@ -33,3 +33,36 @@ export interface GamesCardProps {
   name: string;
   slug: string;
 }
+
+
+export interface GameDetailProps {
+  game: {
+    id: number,
+    cover: {
+      id: number,
+      url: string,
+    },
+    genres: {
+      id: number,
+      name: string
+    }[],
+    name: string,
+    platforms: {
+      id: number,
+      name: string,
+    }[],
+    screenshots: {
+      id: number,
+      image_id: string,
+      url: string,
+    }[],
+    similar_games: {
+      id: number,
+      cover: {
+        url: string,
+      },
+      name: string,
+    }[],
+    storyline: string,
+  }
+}

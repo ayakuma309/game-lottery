@@ -4,40 +4,9 @@ import { GetServerSidePropsContext } from 'next';
 import Genres from '@/components/gameDetail/Genres'
 import SimilarGames from '@/components/gameDetail/SimilarGames'
 import ScreenShots from '@/components/gameDetail/ScreenShots';
+import { GameDetailProps } from '@/types/Type';
 
-interface GameDetailProps {
-  game: {
-    id: number,
-    cover: {
-      id: number,
-      url: string,
-    },
-    genres: {
-      id: number,
-      name: string
-    }[],
-    name: string,
-    platforms: {
-      id: number,
-      name: string,
-    }[],
-    screenshots: {
-      id: number,
-      image_id: string,
-      url: string,
-    }[],
-    similar_games: {
-      id: number,
-      cover: {
-        url: string,
-      },
-      name: string,
-    }[],
-    storyline: string,
-  }
-}
 const GameDetail:React.FC<GameDetailProps> = ({game}) => {
-  // console.log(game);
   return (
     <div className='container w-11/12 mx-auto'>
       <h1 className="w-full text-2xl font-bold text-center py-2 my-2 font-mono">
