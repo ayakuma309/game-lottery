@@ -1,3 +1,5 @@
+import Pagination from '@/components/games/Pagination';
+import usePagination from '@/hooks/usePagination';
 import axios from 'axios'
 import { NextPage } from 'next'
 import React, { useState , FormEvent} from 'react'
@@ -11,29 +13,7 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
   const [title, setTitle] = useState("")
   const [searched, setSearched] = useState("")
   const [resultGames, setResultGames] = useState([])
-  //ページネーションのロジック
-  const [page, setPage] = useState(0);
-  const itemsPerPage = 15;
-  const start = page * itemsPerPage;
-  const end = (page + 1) * itemsPerPage;
-  const displayedGames = resultGames.slice(start, end);
-  const maxPage = Math.ceil(resultGames.length / itemsPerPage);
-
-  //次のページを表示
-  const next = () => {
-    setPage((prevPage) => prevPage + 1);
-    if (typeof window !== "undefined") {
-      window.scroll({ top: 0, behavior: "smooth" });
-    }
-  };
-  //前のページを表示
-  const prev = () => {
-    setPage((prevPage) => prevPage - 1);
-    if (typeof window !== "undefined") {
-      window.scroll({ top: 0, behavior: "smooth" });
-    }
-  };
-
+  const { page, maxPage, displayedGames, next, prev } = usePagination(resultGames)
 
   //検索を実装
   const searchGame = async(e: FormEvent<HTMLFormElement>) => {
@@ -76,34 +56,7 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
           ))}
         </div>
       </div>
-      <div className="flex justify-evenly w-11/12 mx-auto pb-6 relative font-mono">
-          {/* 最初のページ以外 */}
-          {page !== 0 && (
-            <button
-              className="border-4 shadow-md py-1 px-4 rounded-xl hover:text-white"
-              onClick={prev}
-            >
-              Back
-            </button>
-          )}
-
-          {/* 次のページがある場合 */}
-          {page !== maxPage - 1 && resultGames.length > 0 && (
-            <button
-              className="border-2 shadow-md py-1 px-4 rounded-xl hover:text-white"
-              onClick={next}
-            >
-              Next
-            </button>
-          )}
-
-          {/* 最後のページの場合 */}
-          {!resultGames.length &&
-            <p className="bg-primary text-white p-2 rounded-lg text-lg">
-              No results found
-            </p>
-          }
-      </div>
+      <Pagination page={page} maxPage={maxPage} resultGames={resultGames} next={next} prev={prev} />
     </div>
   )
 }
