@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const GamesCard:React.FC<GamesCardProps> = ({id, cover, name, slug}) => {
   return (
-    <div>
+    <div className='glass_card'>
       <div className="flex flex-col justify-center items-center">
         <img
           src={cover ? cover.url.replace('thumb', 'cover_big') : '/no-image.png'}

@@ -9,8 +9,8 @@ type GamesProps = {
 
 const Games:React.FC<GamesProps> = ({displayedGames}) => {
   return (
-    <div>
-      <div className="grid grid-cols-3 gap-4">
+    <div className='w-11/12 mx-auto'>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {displayedGames.map((game: any) => (
           <GamesCard
             key={game.id}
