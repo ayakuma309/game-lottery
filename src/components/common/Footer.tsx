@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                             </li>
                         </nav>
                         <p className="text-gray-400 text-sm text-center mb-2">
-                            © 2023 Game lottery
+                            © 2023 Game Lottery
                         </p>
                     </div>
                 </div>

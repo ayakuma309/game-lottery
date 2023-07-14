@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 const Layout: React.FC<CommonTypeProps> = ({
     children,
-    title = "Game lottery",
+    title = "Game Lottery",
 }) => {
     return (
         <div className="min-h-screen items-center justify-center font-mono">

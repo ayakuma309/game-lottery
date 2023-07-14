@@ -22,7 +22,7 @@ const GameDetail:React.FC<GameDetailProps> = ({game}) => {
 }, []);
 
   return (
-    <Layout title="Recommend games">
+    <Layout title="Game Lottery">
       <div className='container w-11/12 mx-auto'>
         <h1 className="w-full text-2xl font-bold text-center py-2 my-2 font-mono">
           {game.name}<br />
