@@ -4,6 +4,11 @@ export interface ConnectedData {
   expires_in: number;
 }
 
+export interface CommonTypeProps {
+  children: React.ReactNode;
+  title: string;
+}
+
 export interface SearchGamesProps {
   id: number;
   name: string;
