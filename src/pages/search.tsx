@@ -33,6 +33,7 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
     <Layout title="search">
       <div className="container mx-auto mt-32 pb-16 text-black sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
         <form id="search" onSubmit={searchGame} className="mx-auto w-[350px] sm:w-full">
+          <div className='text-white font-bold'>英語で検索してください</div>
           <input
           type="search"
           placeholder="Search for a game..."
