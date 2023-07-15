@@ -3,7 +3,7 @@ import { ScreenShotsProps } from '@/types/Type'
 
 const ScreenShots:React.FC<ScreenShotsProps> = ({screenshots}) => {
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap justify-center'>
       {screenshots.map((screenshot) => (
         <div key={screenshot.id} className=''>
           <img
