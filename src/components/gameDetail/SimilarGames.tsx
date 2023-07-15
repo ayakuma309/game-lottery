@@ -5,7 +5,7 @@ import Link from 'next/link'
 const SimilarGames:React.FC<SimilarGamesProps> = ({similar_games}) => {
   return (
     <>
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap justify-center'>
         {similar_games.map((game) => (
           <div key={game.id} className=''>
             <span className="relative group">
