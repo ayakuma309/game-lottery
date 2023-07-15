@@ -14,16 +14,15 @@ const GameDetail:React.FC<GameDetailProps> = ({game}) => {
   //share用の変数を定義
   const gameListShare = useMemo(() => {
     if (!game || !game.similar_games) return null;
-    // 上位5件のおすすめ映画タイトル
     const recommendedGameTitles = game.similar_games
         .map((g) => g.name)
         .join("\n");
-    return `おすすめでました!\n${recommendedGameTitles}\n`;
+    return `${game.name}\n${recommendedGameTitles}\n`;
 }, []);
 
   return (
     <Layout title="Game Lottery">
-      <div className='container w-11/12 mx-auto'>
+      <div className='container w-11/12 mx-auto mt-24'>
         {game.similar_games && (
           <>
             <h1 className="w-full text-2xl font-bold text-center py-2 my-2 font-mono">
