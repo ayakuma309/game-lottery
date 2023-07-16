@@ -24,4 +24,4 @@ const PlatForms:React.FC<PlatFormsProps> = ({platforms}) => {
   )
 }
 
-export default memo(PlatForms);
+export default PlatForms;
