@@ -18,4 +18,4 @@ const ScreenShots:React.FC<ScreenShotsProps> = ({screenshots}) => {
   )
 }
 
-export default memo(ScreenShots);
+export default ScreenShots;

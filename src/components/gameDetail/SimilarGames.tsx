@@ -53,4 +53,4 @@ const SimilarGames:React.FC<SimilarGamesProps> = ({similar_games}) => {
   )
 }
 
-export default memo(SimilarGames)
+export default SimilarGames;
