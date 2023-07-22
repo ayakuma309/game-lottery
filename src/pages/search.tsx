@@ -1,4 +1,4 @@
-import React, { useState , FormEvent} from 'react'
+import React, { useState , FormEvent, useEffect} from 'react'
 import { NextPage } from 'next'
 import axios from 'axios'
 import usePagination from '@/hooks/usePagination';
@@ -8,6 +8,7 @@ import { ConnectedData } from '@/types/Type';
 import Layout from '@/components/common/Layout';
 
 const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
+  const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("")
   const [searched, setSearched] = useState("")
   const [resultGames, setResultGames] = useState([])
@@ -16,6 +17,7 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
   //検索を実装
   const searchGame = async(e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
     const body = {
       token: connected.access_token,
       //title 変数の値からアルファベットとスペース以外の文字を取り除く
@@ -29,6 +31,22 @@ const search:NextPage<{ connected: ConnectedData }> = ({ connected }) => {
       setSearched(title)
     })
   }
+
+  //loadingの表示
+  useEffect(() => {
+    if (resultGames.length > 0) {
+      setLoading(false)
+    }
+  }, [resultGames])
+
+  if(loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        loading...
+      </div>
+    )
+  }
+
   return (
     <Layout title="search">
       <div className="container mx-auto mt-32 pb-16 text-black sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
