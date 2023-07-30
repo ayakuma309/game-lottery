@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import { ScreenShotsProps } from '@/types/Type'
 
 const ScreenShots:React.FC<ScreenShotsProps> = ({screenshots}) => {
