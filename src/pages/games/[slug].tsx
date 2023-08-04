@@ -35,10 +35,11 @@ const GameDetail:React.FC<GameDetailProps> = ({game}) => {
                 hashtags={["ゲームの宝さがし", "おすすめゲーム"]}
                 url={`https://game-lottery-one.vercel.app/`}
               >
-                <TwitterIcon
-                  className="text-white font-bold rounded-full"
-                  size={"32px"}
-                />
+                <div
+                  className="text-white font-bold rounded-full mr-5 bg-black  py-1 px-2"
+                >
+                  \uD835\uDD4F
+                </div>
               </TwitterShareButton>
             </div>
           </>
