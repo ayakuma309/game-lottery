@@ -6,7 +6,7 @@ import SimilarGames from '@/components/gameDetail/SimilarGames'
 import ScreenShots from '@/components/gameDetail/ScreenShots';
 import { GameDetailProps } from '@/types/Type';
 import PlatForms from '@/components/gameDetail/PlatForms';
-import { TwitterIcon, TwitterShareButton } from 'react-share';
+import { TwitterShareButton } from 'react-share';
 import Layout from '@/components/common/Layout';
 
 const GameDetail:React.FC<GameDetailProps> = ({game}) => {
