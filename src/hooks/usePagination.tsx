@@ -1,7 +1,7 @@
-import { SearchGamesProps  } from '@/types/Type';
+import { GamesInfoProps   } from '@/types/Type';
 import  { useState } from 'react'
 
-const usePagination = (resultGames: SearchGamesProps []) => {
+const usePagination = (resultGames: GamesInfoProps[]) => {
   //ページネーションのロジック
   const [page, setPage] = useState(0);
   const itemsPerPage = 15;
