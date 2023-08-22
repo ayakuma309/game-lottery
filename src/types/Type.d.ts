@@ -9,12 +9,13 @@ export interface CommonTypeProps {
   title: string;
 }
 
-export interface SearchGamesProps {
+export interface GamesInfoProps {
   id: number;
   name: string;
   cover: {
     url: string;
   };
+  slug: string;
 }
 export interface GamePaginationProps {
   page: number;
@@ -23,16 +24,6 @@ export interface GamePaginationProps {
   next: () => void;
   prev: () => void;
 }
-
-export interface GamesCardProps {
-  id: number;
-  cover: {
-    url: string;
-  };
-  name: string;
-  slug: string;
-}
-
 
 export interface GameDetailProps {
   game: {

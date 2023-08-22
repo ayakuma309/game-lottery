@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
-import { GamesCardProps } from '@/types/Type'
+import { GamesInfoProps } from '@/types/Type'
 import Link from 'next/link'
 
-const GamesCard:React.FC<GamesCardProps> = ({id, cover, name, slug}) => {
+const GamesCard:React.FC<GamesInfoProps> = ({id, cover, name, slug}) => {
   return (
     <div className='glass_card'>
       <div className="flex flex-col justify-center items-center">
